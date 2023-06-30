@@ -27,17 +27,13 @@ public class OrderService {
         payment.setOrderId(order.getId());
         payment.setAmount(order.getPrice());
         //rest call
-        Payment paymentResponse = restTemplate.postForObject("http://localhost:9090/payment/doPayment",payment,Payment.class);
+        Payment paymentResponse = restTemplate.postForObject("http://localhost:9091/payment/doPayment",payment,Payment.class);
 
         response =paymentResponse.getPaymentStatus().equals("success")?"payment processing successful and order placed":"There is a failure in payment api";
 
         orderRepository.save(order);
         return new TransactionResponse(order,paymentResponse.getAmount(),paymentResponse.getTransactionId(),response);
     }
-
-
-
-
 
 
 }
