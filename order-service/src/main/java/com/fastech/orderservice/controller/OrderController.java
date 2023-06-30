@@ -1,5 +1,6 @@
 package com.fastech.orderservice.controller;
 
+import com.fastech.orderservice.common.Payment;
 import com.fastech.orderservice.entity.Order;
 import com.fastech.orderservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,10 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/bookOrder")
-    public Order saveOrder(@RequestBody Order order){
-        return orderService.saveOrder(order);
-        //do a rest call to payment and pass the order id
+    public TransactionResponse saveOrder(@RequestBody TransactionRequest request){
+
+
+        return orderService.saveOrder(request);
     }
 
 

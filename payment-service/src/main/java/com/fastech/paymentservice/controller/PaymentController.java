@@ -18,7 +18,7 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @PostMapping("/doPayment")
-    public Payment payments(@RequestBody Payment payment){
+    public Payment doPayment(@RequestBody Payment payment){
         return paymentService.doPayment(payment);
     }
 
