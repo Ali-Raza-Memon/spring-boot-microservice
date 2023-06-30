@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
 @RequestMapping("/payment")
 public class PaymentController {
@@ -19,6 +21,7 @@ public class PaymentController {
     public Payment payments(@RequestBody Payment payment){
         return paymentService.doPayment(payment);
     }
+
 
 
 
