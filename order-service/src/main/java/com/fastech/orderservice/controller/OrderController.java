@@ -18,6 +18,7 @@ public class OrderController {
     @PostMapping("/bookOrder")
     public Order saveOrder(@RequestBody Order order){
         return orderService.saveOrder(order);
+        //do a rest call to payment and pass the order id
     }
 
 
