@@ -8,3 +8,17 @@ eureka:
     hostname: localhost
 server:
   port: 8989
+spring:
+  application:
+    name: GATEWAY-SERVICE
+    cloud:
+      gateway:
+        routes:
+          - id: order-service
+            uri: 1b
+            predicates:
+              - Path=/order/**
+          - id: payment-service
+            uri: 1b
+            predicates:
+              - Path=/payment/**
