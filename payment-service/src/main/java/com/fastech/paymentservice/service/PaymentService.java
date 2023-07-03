@@ -27,4 +27,11 @@ public class PaymentService {
     }
 
 
+    public Payment findPaymentHistoryByOrderId(int orderId) {
+
+        return paymentRepository.findByOrderId(orderId);
+    }
+
+
+
 }
