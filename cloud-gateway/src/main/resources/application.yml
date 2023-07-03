@@ -8,17 +8,35 @@ eureka:
     hostname: localhost
 server:
   port: 8989
+#spring:
+#  application:
+#    name: GATEWAY-SERVICE
+#    cloud:
+#      gateway:
+#        routes:
+#          - id: order-service
+#            uri: 1b
+#            predicates:
+#              - Path=/order/**
+#          - id: payment-service
+#            uri: 1b
+#            predicates:
+#              - Path=/payment/**
+
+
 spring:
   application:
     name: GATEWAY-SERVICE
-    cloud:
-      gateway:
-        routes:
-          - id: order-service
-            uri: 1b
-            predicates:
-              - Path=/order/**
-          - id: payment-service
-            uri: 1b
-            predicates:
-              - Path=/payment/**
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: http://localhost:9090/order
+          predicates:
+            - Path=/order/**
+        - id: payment-service
+          uri: http://localhost:9999/payment
+          predicates:
+            - Path=/payment/**
+
+
